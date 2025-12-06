@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Citizen Organization Bot - User Guide</title>
+    <title>OST Bot - User Guide</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -268,17 +272,57 @@
         .toc a:hover {
             text-decoration: underline;
         }
+
+        .legal-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .legal-section h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .nav-links {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #f8f9fa;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Star Citizen Organization Bot</h1>
+            <h1>OST Bot</h1>
             <p class="subtitle">User Guide</p>
         </header>
 
         <main>
-            <section>
+            <nav class="nav-links">
+                <a href="#user-guide">User Guide</a>
+                <a href="#privacy-policy">Privacy Policy</a>
+                <a href="#terms-of-service">Terms of Service</a>
+            </nav>
+
+            <section id="user-guide">
                 <p>Welcome! This guide will help you use the Star Citizen Organization Discord Bot to manage your org's goals, inventory, and operations.</p>
             </section>
 
@@ -693,10 +737,285 @@
                     <li>Discord administrators always have full access</li>
                 </ul>
             </section>
+
+            <hr>
+
+            <section id="privacy-policy">
+                <h2><span class="emoji">🔒</span> Privacy Policy</h2>
+                <div class="legal-section">
+                    <p><strong>Last Updated:</strong> 6th of December 2025</p>
+                    <p>This Privacy Policy describes how the OST Bot ("the Bot", "we", "our", or "us") collects, uses, and protects information when you use our Discord bot service.</p>
+                </div>
+
+                <h3>1. Information We Collect</h3>
+                <div class="legal-section">
+                    <p>The Bot collects and stores the following information:</p>
+                    <ul>
+                        <li><strong>Discord User Information:</strong> Your Discord user ID, username, and server membership information</li>
+                        <li><strong>Organization Data:</strong> Goals, inventory items, member ranks, and organizational settings you create or manage</li>
+                        <li><strong>Server Configuration:</strong> Server-specific settings such as role assignments, report channels, and scheduling preferences</li>
+                        <li><strong>Command Usage:</strong> Commands executed and data entered through bot interactions</li>
+                    </ul>
+                    <p>We do not collect or store:</p>
+                    <ul>
+                        <li>Your email address or other personal contact information</li>
+                        <li>Payment or financial information</li>
+                        <li>Messages sent in Discord channels (except data explicitly provided through bot commands)</li>
+                        <li>Private messages sent to the bot (unless you explicitly provide data through commands)</li>
+                    </ul>
+                </div>
+
+                <h3>2. How We Use Your Information</h3>
+                <div class="legal-section">
+                    <p>We use the collected information to:</p>
+                    <ul>
+                        <li>Provide and maintain the bot's core functionality (goal tracking, inventory management, reporting)</li>
+                        <li>Associate data with your Discord account and server</li>
+                        <li>Generate reports and statistics for your organization</li>
+                        <li>Enforce permission levels and access controls</li>
+                        <li>Improve bot functionality and fix technical issues</li>
+                    </ul>
+                </div>
+
+                <h3>3. Data Storage and Security</h3>
+                <div class="legal-section">
+                    <p>Your data is stored securely in a database associated with your Discord server. We implement reasonable security measures to protect your information, including:</p>
+                    <ul>
+                        <li>Secure database storage with access controls</li>
+                        <li>Regular security updates and maintenance</li>
+                        <li>Limited access to data by authorized personnel only</li>
+                    </ul>
+                    <p>However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+                </div>
+
+                <h3>4. Data Sharing and Disclosure</h3>
+                <div class="legal-section">
+                    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                    <ul>
+                        <li><strong>Within Your Server:</strong> Data is visible to members of your Discord server based on their permission levels</li>
+                        <li><strong>Legal Requirements:</strong> If required by law or in response to valid legal requests</li>
+                        <li><strong>Service Providers:</strong> With trusted service providers who assist in operating the bot (e.g., hosting services), subject to confidentiality agreements</li>
+                    </ul>
+                </div>
+
+                <h3>5. Data Retention</h3>
+                <div class="legal-section">
+                    <p>We retain your data for as long as:</p>
+                    <ul>
+                        <li>The bot remains active in your Discord server</li>
+                        <li>Your organization data is needed to provide services</li>
+                        <li>Required by law or for legitimate business purposes</li>
+                    </ul>
+                    <p>If you remove the bot from your server, you may request deletion of your server's data. Historical data may be retained for a reasonable period for backup and recovery purposes.</p>
+                </div>
+
+                <h3>6. Your Rights</h3>
+                <div class="legal-section">
+                    <p>You have the right to:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Request information about what data we have stored about you or your server</li>
+                        <li><strong>Correction:</strong> Update or correct your data through bot commands or by contacting us</li>
+                        <li><strong>Deletion:</strong> Request deletion of your data (subject to legal and operational requirements)</li>
+                        <li><strong>Opt-out:</strong> Remove the bot from your server at any time</li>
+                    </ul>
+                    <p>To exercise these rights, contact your server administrators or reach out to us directly.</p>
+                </div>
+
+                <h3>7. Children's Privacy</h3>
+                <div class="legal-section">
+                    <p>The Bot is intended for use by Discord users who are at least 13 years old, in compliance with Discord's Terms of Service. We do not knowingly collect information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.</p>
+                </div>
+
+                <h3>8. Changes to This Privacy Policy</h3>
+                <div class="legal-section">
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
+                </div>
+
+                <h3>9. Contact Us</h3>
+                <div class="legal-section">
+                    <p>If you have any questions about this Privacy Policy, please contact:</p>
+                    <ul>
+                        <li>Your server administrators</li>
+                        <li>HugsNdNugs on Discord</li>
+                        <li>Open an issue on the bot's repository</li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="terms-of-service">
+                <h2><span class="emoji">📜</span> Terms of Service</h2>
+                <div class="legal-section">
+                    <p><strong>Last Updated:</strong> 6th of December 2025</p>
+                    <p>Please read these Terms of Service ("Terms") carefully before using the OST Bot ("the Bot", "we", "our", or "us"). By using the Bot, you agree to be bound by these Terms.</p>
+                </div>
+
+                <h3>1. Acceptance of Terms</h3>
+                <div class="legal-section">
+                    <p>By inviting, using, or accessing the Bot, you acknowledge that you have read, understood, and agree to be bound by these Terms and all applicable laws and regulations. If you do not agree with any part of these Terms, you must not use the Bot.</p>
+                </div>
+
+                <h3>2. Description of Service</h3>
+                <div class="legal-section">
+                    <p>The Bot is a Discord bot designed to help Star Citizen organizations manage:</p>
+                    <ul>
+                        <li>Goals and progress tracking (aUEC and item-based)</li>
+                        <li>Inventory management (ships, weapons, equipment)</li>
+                        <li>Member management and permissions</li>
+                        <li>Automated reporting and statistics</li>
+                    </ul>
+                    <p>The Bot is provided "as is" and we reserve the right to modify, suspend, or discontinue any aspect of the service at any time.</p>
+                </div>
+
+                <h3>3. User Responsibilities</h3>
+                <div class="legal-section">
+                    <p>You agree to:</p>
+                    <ul>
+                        <li>Use the Bot only for lawful purposes and in accordance with Discord's Terms of Service</li>
+                        <li>Provide accurate and truthful information when using bot commands</li>
+                        <li>Respect the permission levels and access controls set by your server administrators</li>
+                        <li>Not attempt to exploit, abuse, or harm the Bot or its services</li>
+                        <li>Not use the Bot to store or transmit illegal, harmful, or offensive content</li>
+                        <li>Maintain the security of your Discord server and bot permissions</li>
+                    </ul>
+                </div>
+
+                <h3>4. Permissions and Access</h3>
+                <div class="legal-section">
+                    <p>The Bot requires certain Discord permissions to function:</p>
+                    <ul>
+                        <li>Read and send messages in configured channels</li>
+                        <li>Use slash commands and respond to interactions</li>
+                        <li>Read server member information (for permission checks)</li>
+                        <li>Manage roles (if configured for automatic role assignment)</li>
+                    </ul>
+                    <p>Permission levels within the Bot (Officer, Logistics, Member) are managed by your server administrators. We are not responsible for how permissions are configured in your server.</p>
+                </div>
+
+                <h3>5. Data and Content</h3>
+                <div class="legal-section">
+                    <p>You retain ownership of all data and content you create using the Bot. By using the Bot, you grant us a license to:</p>
+                    <ul>
+                        <li>Store and process your data to provide the service</li>
+                        <li>Access and display your data within your Discord server</li>
+                        <li>Use aggregated, anonymized data for service improvement</li>
+                    </ul>
+                    <p>You are responsible for backing up important data. We are not liable for data loss due to technical issues, server removal, or other circumstances.</p>
+                </div>
+
+                <h3>6. Prohibited Uses</h3>
+                <div class="legal-section">
+                    <p>You may not:</p>
+                    <ul>
+                        <li>Use the Bot to violate any laws, regulations, or third-party rights</li>
+                        <li>Attempt to reverse engineer, decompile, or extract the Bot's source code</li>
+                        <li>Use automated systems or bots to interact with the Bot (except as intended)</li>
+                        <li>Interfere with or disrupt the Bot's operation or servers</li>
+                        <li>Impersonate others or provide false information</li>
+                        <li>Use the Bot to spam, harass, or harm others</li>
+                        <li>Attempt to gain unauthorized access to other servers' data</li>
+                    </ul>
+                </div>
+
+                <h3>7. Service Availability</h3>
+                <div class="legal-section">
+                    <p>We strive to maintain high availability but do not guarantee:</p>
+                    <ul>
+                        <li>Uninterrupted or error-free service</li>
+                        <li>That the Bot will be available at all times</li>
+                        <li>That all features will work perfectly in all circumstances</li>
+                    </ul>
+                    <p>The Bot may be temporarily unavailable due to maintenance, updates, technical issues, or circumstances beyond our control. We are not liable for any losses resulting from service interruptions.</p>
+                </div>
+
+                <h3>8. Limitation of Liability</h3>
+                <div class="legal-section">
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+                    <ul>
+                        <li>The Bot is provided "as is" and "as available" without warranties of any kind</li>
+                        <li>We disclaim all warranties, express or implied, including merchantability and fitness for a particular purpose</li>
+                        <li>We are not liable for any indirect, incidental, special, consequential, or punitive damages</li>
+                        <li>Our total liability shall not exceed the amount you paid to use the service (which is currently $0, as the service is free)</li>
+                    </ul>
+                </div>
+
+                <h3>9. Indemnification</h3>
+                <div class="legal-section">
+                    <p>You agree to indemnify and hold harmless the Bot's developers, operators, and affiliates from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:</p>
+                    <ul>
+                        <li>Your use of the Bot</li>
+                        <li>Your violation of these Terms</li>
+                        <li>Your violation of any third-party rights</li>
+                        <li>Content or data you provide through the Bot</li>
+                    </ul>
+                </div>
+
+                <h3>10. Termination</h3>
+                <div class="legal-section">
+                    <p>We may terminate or suspend your access to the Bot immediately, without prior notice, for:</p>
+                    <ul>
+                        <li>Violation of these Terms</li>
+                        <li>Abuse or misuse of the service</li>
+                        <li>Legal or regulatory requirements</li>
+                        <li>Discontinuation of the service</li>
+                    </ul>
+                    <p>You may stop using the Bot at any time by removing it from your Discord server.</p>
+                </div>
+
+                <h3>11. Changes to Terms</h3>
+                <div class="legal-section">
+                    <p>We reserve the right to modify these Terms at any time. We will notify users of material changes by:</p>
+                    <ul>
+                        <li>Posting updated Terms on this page</li>
+                        <li>Updating the "Last Updated" date</li>
+                        <li>Notifying server administrators when possible</li>
+                    </ul>
+                    <p>Your continued use of the Bot after changes constitutes acceptance of the modified Terms.</p>
+                </div>
+
+                <h3>12. Third-Party Services</h3>
+                <div class="legal-section">
+                    <p>The Bot integrates with Discord and may use other third-party services. Your use of the Bot is also subject to:</p>
+                    <ul>
+                        <li><strong>Discord Terms of Service:</strong> <a href="https://discord.com/terms" target="_blank">https://discord.com/terms</a></li>
+                        <li><strong>Discord Privacy Policy:</strong> <a href="https://discord.com/privacy" target="_blank">https://discord.com/privacy</a></li>
+                    </ul>
+                    <p>We are not responsible for the practices of third-party services.</p>
+                </div>
+
+                <h3>13. Governing Law</h3>
+                <div class="legal-section">
+                    <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law provisions. Any disputes arising from these Terms or use of the Bot shall be resolved through appropriate legal channels.</p>
+                </div>
+
+                <h3>14. Severability</h3>
+                <div class="legal-section">
+                    <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+                </div>
+
+                <h3>15. Contact Information</h3>
+                <div class="legal-section">
+                    <p>If you have questions about these Terms of Service, please contact:</p>
+                    <ul>
+                        <li>Your server administrators</li>
+                        <li>HugsNdNugs on Discord</li>
+                        <li>Open an issue on the bot's repository</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <p><strong>By using the OST Bot, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong></p>
+                </div>
+            </section>
         </main>
 
         <footer>
             <p><strong>Need Help?</strong> Contact your server administrators or HugsNdNugs on Discord.</p>
+            <p>
+                <a href="#privacy-policy" style="color: #667eea; text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
+                <a href="#terms-of-service" style="color: #667eea; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+            </p>
             <p><strong>Happy Organizing!</strong> <span class="emoji">🚀</span></p>
         </footer>
     </div>
