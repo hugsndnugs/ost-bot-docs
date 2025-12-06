@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Citizen Organization Bot - User Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin: -20px -20px 40px -20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .permission-level {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .command-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .command-block code {
+            display: block;
+            margin-top: 10px;
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .example {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .quick-ref-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .quick-ref-section h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .quick-ref-section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .quick-ref-section li {
+            padding: 5px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .quick-ref-section li:last-child {
+            border-bottom: none;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #dee2e6;
+            margin: 30px 0;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 2px solid #dee2e6;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                margin: -10px -10px 30px -10px;
+                padding: 30px 15px;
+            }
+
+            .feature-list,
+            .quick-ref {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toc {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Star Citizen Organization Bot</h1>
+            <p class="subtitle">User Guide</p>
+        </header>
+
+        <main>
+            <section>
+                <p>Welcome! This guide will help you use the Star Citizen Organization Discord Bot to manage your org's goals, inventory, and operations.</p>
+            </section>
+
+            <section>
+                <h2>What Can This Bot Do?</h2>
+                <p>The bot helps your Star Citizen organization:</p>
+                <div class="feature-list">
+                    <div class="feature-card">
+                        <h4><span class="emoji">🎯</span> Track Goals</h4>
+                        <p>Set and monitor progress toward aUEC targets or specific items</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📦</span> Manage Inventory</h4>
+                        <p>Keep track of ships, weapons, and other assets</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Generate Reports</h4>
+                        <p>Get weekly summaries of your org's progress</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">👥</span> Manage Members</h4>
+                        <p>Organize members with ranks and permissions</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Getting Started</h2>
+                <h3>Permissions & Roles</h3>
+                <p>The bot uses three permission levels:</p>
+                <div class="permission-level">
+                    <p><strong><span class="emoji">👑</span> Officers</strong> - Full access to all commands (create goals, manage inventory, configure bot)</p>
+                </div>
+                <div class="permission-level">
+                    <p><strong><span class="emoji">📋</span> Logistics</strong> - Can manage inventory and view member info</p>
+                </div>
+                <div class="permission-level">
+                    <p><strong><span class="emoji">👤</span> Members</strong> - Can view goals/inventory and update goal progress</p>
+                </div>
+                <p>Your server admins can configure which Discord roles have these permissions, or set them manually using bot commands.</p>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2><span class="emoji">🎯</span> Goal Management</h2>
+                
+                <h3>Creating Goals</h3>
+                <p>There are two types of goals you can create:</p>
+
+                <h4>1. aUEC-Based Goals</h4>
+                <p>Track progress toward a monetary target (e.g., "Save 10 million aUEC for a new ship").</p>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/goal_create</code></p>
+                    <ul>
+                        <li><strong>Name</strong>: What you're working toward</li>
+                        <li><strong>Target Value</strong>: How much aUEC you need</li>
+                        <li><strong>Category</strong>: fleet, cargo, training, operations, pvp, exploration, mining, trading, other</li>
+                        <li><strong>Description</strong>: (Optional) Additional details</li>
+                        <li><strong>Deadline</strong>: (Optional) When you want to complete it (YYYY-MM-DD format)</li>
+                    </ul>
+                    <div class="example">
+                        <p><strong>Example:</strong></p>
+                        <code>/goal_create name:"Fleet Expansion Fund" target_value:50000000 category:fleet description:"Saving for 5 new Cutlass Blacks" deadline:2024-12-31</code>
+                    </div>
+                </div>
+
+                <h4>2. Item-Based Goals</h4>
+                <p>Track progress toward collecting specific items (e.g., "Get 3 Cutlass Blacks and 10 AR-15s").</p>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/goal_create_items</code></p>
+                    <ul>
+                        <li><strong>Name</strong>: What you're working toward</li>
+                        <li><strong>Category</strong>: Same categories as above</li>
+                        <li><strong>Items</strong>: List of required items in format <code>ItemName:Type:Quantity</code>
+                            <ul>
+                                <li>Separate multiple items with commas</li>
+                                <li>Example: <code>Cutlass Black:ship:3,AR-15:weapon:10</code></li>
+                            </ul>
+                        </li>
+                        <li><strong>Description</strong>: (Optional) Additional details</li>
+                        <li><strong>Deadline</strong>: (Optional) When you want to complete it</li>
+                    </ul>
+                    <div class="example">
+                        <p><strong>Example:</strong></p>
+                        <code>/goal_create_items name:"Combat Fleet Ready" category:fleet items:"Cutlass Black:ship:3,Arrow:ship:5,AR-15:weapon:20" description:"Building our PvP fleet"</code>
+                    </div>
+                </div>
+
+                <h3>Viewing Goals</h3>
+                <div class="command-block">
+                    <p><strong>List all goals:</strong> <code>/goal_list</code></p>
+                    <ul>
+                        <li>Filter by category (optional)</li>
+                        <li>Show only active goals (default: yes)</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>View specific goal:</strong> <code>/goal_view</code></p>
+                    <ul>
+                        <li>Enter the goal ID (shown when you create or list goals)</li>
+                    </ul>
+                </div>
+
+                <h3>Updating Progress</h3>
+                <div class="command-block">
+                    <p><strong>For aUEC goals:</strong> <code>/goal_update</code></p>
+                    <ul>
+                        <li>Enter the goal ID</li>
+                        <li>Add or subtract aUEC (use negative numbers to subtract)</li>
+                        <li>Example: <code>/goal_update goal_id:5 delta:1000000</code> (adds 1M aUEC)</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>For item-based goals:</strong> <code>/goal_sync_items</code></p>
+                    <ul>
+                        <li>Automatically syncs with your current inventory</li>
+                        <li>The bot checks what items you have and updates progress automatically</li>
+                    </ul>
+                </div>
+
+                <h3>Managing Goals</h3>
+                <div class="command-block">
+                    <p><strong>Mark complete/incomplete:</strong> <code>/goal_complete</code> (Officers only)</p>
+                    <ul>
+                        <li>Toggle a goal's active status</li>
+                        <li>Completed goals can be reactivated if needed</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">📦</span> Inventory Management</h2>
+
+                <h3>Adding Items</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/inv_add</code> (Logistics only)</p>
+                    <p><strong>Required:</strong></p>
+                    <ul>
+                        <li><strong>Name</strong>: Item name (e.g., "Cutlass Black", "AR-15")</li>
+                        <li><strong>Type</strong>: ship, vehicle, weapon, armor, cargo, component, consumable, other</li>
+                    </ul>
+                    <p><strong>Optional:</strong></p>
+                    <ul>
+                        <li><strong>Quantity</strong>: How many (default: 1)</li>
+                        <li><strong>Location</strong>: Where it's stored</li>
+                        <li><strong>Notes</strong>: Additional information</li>
+                        <li><strong>Owner ID</strong>: Discord ID if owned by a member (leave empty for org-owned)</li>
+                    </ul>
+                    <div class="example">
+                        <p><strong>Example:</strong></p>
+                        <code>/inv_add name:"Cutlass Black" type:ship quantity:2 location:"Hangar 3" notes:"Fully upgraded"</code>
+                    </div>
+                </div>
+
+                <h3>Viewing Inventory</h3>
+                <div class="command-block">
+                    <p><strong>List items:</strong> <code>/inv_list</code></p>
+                    <ul>
+                        <li>Filter by type (optional)</li>
+                        <li>Filter by owner Discord ID (optional)</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>Search by name:</strong> <code>/inv_find</code></p>
+                    <ul>
+                        <li>Type part of the item name to search</li>
+                        <li>Example: <code>/inv_find query:"Cutlass"</code> finds all items with "Cutlass" in the name</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>View specific item:</strong> <code>/inv_view</code></p>
+                    <ul>
+                        <li>Enter the item ID (shown when you add or list items)</li>
+                    </ul>
+                </div>
+
+                <h3>Updating Inventory</h3>
+                <div class="command-block">
+                    <p><strong>Update item:</strong> <code>/inv_update</code> (Logistics only)</p>
+                    <ul>
+                        <li>Change quantity, location, or notes</li>
+                        <li>Only update the fields you want to change</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>Remove item:</strong> <code>/inv_remove</code> (Logistics only)</p>
+                    <ul>
+                        <li>Permanently removes an item from inventory</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">📊</span> Reports</h2>
+
+                <h3>Manual Reports</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/report_generate</code> (Officers only)</p>
+                    <p>Generates a summary showing:</p>
+                    <ul>
+                        <li>Active goals and progress</li>
+                        <li>Inventory totals by type</li>
+                        <li>Member count</li>
+                        <li>Overall statistics</li>
+                    </ul>
+                </div>
+
+                <h3>Automatic Weekly Reports</h3>
+                <p>Your server admins can configure the bot to automatically post weekly reports to a specific channel. These reports include:</p>
+                <ul>
+                    <li>Goals summary with top performers</li>
+                    <li>Inventory breakdown</li>
+                    <li>Member statistics</li>
+                </ul>
+                <p>Contact your server admins to set up automatic reports.</p>
+            </section>
+
+            <section>
+                <h2><span class="emoji">👥</span> Member Management</h2>
+
+                <h3>Setting Member Ranks</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/admin_member_set_rank</code> (Officers only)</p>
+                    <p>Set a member's organization rank:</p>
+                    <ul>
+                        <li><strong>member</strong> - Basic access</li>
+                        <li><strong>logistics</strong> - Can manage inventory</li>
+                        <li><strong>officer</strong> - Full access</li>
+                        <li><strong>admin</strong> - Full access (highest level)</li>
+                    </ul>
+                    <div class="example">
+                        <p><strong>Example:</strong></p>
+                        <code>/admin_member_set_rank member_id:123456789012345678 rank:logistics</code>
+                    </div>
+                </div>
+
+                <h3>Viewing Member Info</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/admin_member_info</code> (Officers only)</p>
+                    <p>Shows:</p>
+                    <ul>
+                        <li>Member's rank</li>
+                        <li>Join date</li>
+                        <li>Number of goals created</li>
+                        <li>Number of inventory items owned</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">⚙️</span> Server Configuration</h2>
+                <p>These commands help admins configure the bot for your server.</p>
+
+                <h3>Setting Roles</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/admin_config_set_role</code> (Officers only)</p>
+                    <p>Configure which Discord roles have permissions:</p>
+                    <ul>
+                        <li>Set the <strong>officer</strong> role (full access)</li>
+                        <li>Set the <strong>logistics</strong> role (inventory management)</li>
+                        <li>Leave empty to clear/remove a role</li>
+                    </ul>
+                </div>
+
+                <h3>Report Settings</h3>
+                <div class="command-block">
+                    <p><strong>Set report channel:</strong> <code>/admin_config_set_report_channel</code> (Officers only)</p>
+                    <ul>
+                        <li>Choose which channel receives weekly reports</li>
+                        <li>Leave empty to disable automatic reports</li>
+                    </ul>
+                </div>
+                <div class="command-block">
+                    <p><strong>Set report schedule:</strong> <code>/admin_config_set_report_time</code> (Officers only)</p>
+                    <ul>
+                        <li><strong>Day</strong>: 0 = Monday, 1 = Tuesday, ..., 6 = Sunday</li>
+                        <li><strong>Hour</strong>: 0-23 in UTC (24-hour format)</li>
+                        <li>Example: <code>/admin_config_set_report_time day:0 hour:9</code> (Monday at 9 AM UTC)</li>
+                    </ul>
+                </div>
+
+                <h3>View Configuration</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/admin_config_view</code> (Officers only)</p>
+                    <p>Shows all current server settings:</p>
+                    <ul>
+                        <li>Officer and Logistics roles</li>
+                        <li>Report channel</li>
+                        <li>Report schedule</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">💡</span> Tips & Examples</h2>
+
+                <h3>Example Workflow: Setting Up a Fleet Goal</h3>
+                <ol>
+                    <li><strong>Create an item-based goal:</strong>
+                        <pre><code>/goal_create_items name:"Fleet Expansion" category:fleet items:"Cutlass Black:ship:5,Arrow:ship:10"</code></pre>
+                    </li>
+                    <li><strong>Add ships to inventory as you acquire them:</strong>
+                        <pre><code>/inv_add name:"Cutlass Black" type:ship quantity:1 location:"Hangar 1"</code></pre>
+                    </li>
+                    <li><strong>Sync the goal to update progress:</strong>
+                        <pre><code>/goal_sync_items goal_id:1</code></pre>
+                    </li>
+                    <li><strong>View progress anytime:</strong>
+                        <pre><code>/goal_view goal_id:1</code></pre>
+                    </li>
+                </ol>
+
+                <h3>Example Workflow: Tracking aUEC Savings</h3>
+                <ol>
+                    <li><strong>Create an aUEC goal:</strong>
+                        <pre><code>/goal_create name:"Capital Ship Fund" target_value:100000000 category:fleet deadline:2024-12-31</code></pre>
+                    </li>
+                    <li><strong>Update progress as members contribute:</strong>
+                        <pre><code>/goal_update goal_id:2 delta:5000000</code></pre>
+                    </li>
+                    <li><strong>Check progress:</strong>
+                        <pre><code>/goal_list active_only:True</code></pre>
+                    </li>
+                </ol>
+
+                <h3>Finding Items</h3>
+                <p>Use <code>/inv_find</code> to quickly locate items:</p>
+                <ul>
+                    <li><code>/inv_find query:"weapon"</code> - Find all weapons</li>
+                    <li><code>/inv_find query:"Cutlass"</code> - Find all Cutlass variants</li>
+                    <li><code>/inv_find query:"AR"</code> - Find AR-series weapons</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2><span class="emoji">❓</span> Common Questions</h2>
+                <div class="tip">
+                    <p><strong>Q: Why can't I use a command?</strong><br>
+                    A: Check your permissions. Officers have full access, Logistics can manage inventory, and Members can view and update goals.</p>
+                </div>
+                <div class="tip">
+                    <p><strong>Q: How do I find a goal or item ID?</strong><br>
+                    A: IDs are shown when you create items/goals, or when you use <code>/goal_list</code> or <code>/inv_list</code>.</p>
+                </div>
+                <div class="tip">
+                    <p><strong>Q: Can I delete a goal?</strong><br>
+                    A: Use <code>/goal_complete</code> to mark it inactive. Goals are kept for historical records.</p>
+                </div>
+                <div class="tip">
+                    <p><strong>Q: How do item-based goals work?</strong><br>
+                    A: They automatically check your inventory for matching items (by name and type). Use <code>/goal_sync_items</code> to update progress.</p>
+                </div>
+                <div class="tip">
+                    <p><strong>Q: What's the difference between org-owned and member-owned items?</strong><br>
+                    A: Org-owned items belong to the organization. Member-owned items are tracked to a specific Discord user. Both count toward item-based goals.</p>
+                </div>
+                <div class="tip">
+                    <p><strong>Q: How do I set up weekly reports?</strong><br>
+                    A: Officers can use <code>/admin_config_set_report_channel</code> and <code>/admin_config_set_report_time</code> to configure automatic reports.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">🎮</span> Quick Reference</h2>
+                <div class="quick-ref">
+                    <div class="quick-ref-section">
+                        <h4>Goal Commands</h4>
+                        <ul>
+                            <li><code>/goal_create</code> - Create aUEC goal (Officers)</li>
+                            <li><code>/goal_create_items</code> - Create item goal (Officers)</li>
+                            <li><code>/goal_list</code> - List goals</li>
+                            <li><code>/goal_view</code> - View goal details</li>
+                            <li><code>/goal_update</code> - Update aUEC progress (Members)</li>
+                            <li><code>/goal_sync_items</code> - Sync item goal (Members)</li>
+                            <li><code>/goal_complete</code> - Toggle goal status (Officers)</li>
+                        </ul>
+                    </div>
+                    <div class="quick-ref-section">
+                        <h4>Inventory Commands</h4>
+                        <ul>
+                            <li><code>/inv_add</code> - Add item (Logistics)</li>
+                            <li><code>/inv_list</code> - List items</li>
+                            <li><code>/inv_find</code> - Search items</li>
+                            <li><code>/inv_view</code> - View item details</li>
+                            <li><code>/inv_update</code> - Update item (Logistics)</li>
+                            <li><code>/inv_remove</code> - Remove item (Logistics)</li>
+                        </ul>
+                    </div>
+                    <div class="quick-ref-section">
+                        <h4>Admin Commands</h4>
+                        <ul>
+                            <li><code>/admin_member_set_rank</code> - Set member rank (Officers)</li>
+                            <li><code>/admin_member_info</code> - View member info (Officers)</li>
+                            <li><code>/admin_config_set_role</code> - Configure roles (Officers)</li>
+                            <li><code>/admin_config_set_report_channel</code> - Set report channel (Officers)</li>
+                            <li><code>/admin_config_set_report_time</code> - Set report schedule (Officers)</li>
+                            <li><code>/admin_config_view</code> - View configuration (Officers)</li>
+                            <li><code>/report_generate</code> - Generate report (Officers)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2><span class="emoji">📝</span> Notes</h2>
+                <ul>
+                    <li>All dates use UTC timezone</li>
+                    <li>Item names are case-insensitive when syncing goals</li>
+                    <li>Goals can be filtered by category using autocomplete</li>
+                    <li>The bot supports multiple Discord servers with separate data</li>
+                    <li>Discord administrators always have full access</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p><strong>Need Help?</strong> Contact your server administrators or open an issue on the bot's repository.</p>
+            <p><strong>Happy Organizing!</strong> <span class="emoji">🚀</span></p>
+        </footer>
+    </div>
+</body>
+</html>
