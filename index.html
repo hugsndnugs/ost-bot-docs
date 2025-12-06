@@ -111,9 +111,10 @@
 
         .feature-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 20px;
             margin: 20px 0;
+            justify-items: center;
         }
 
         .feature-card {
@@ -121,6 +122,9 @@
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid #667eea;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .feature-card h4 {
@@ -227,6 +231,12 @@
             color: #6c757d;
         }
 
+        @media (max-width: 1200px) {
+            .feature-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -241,8 +251,17 @@
                 padding: 30px 15px;
             }
 
-            .feature-list,
+            .feature-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .quick-ref {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-list {
                 grid-template-columns: 1fr;
             }
         }
@@ -346,6 +365,10 @@
                         <h4><span class="emoji">👥</span> Manage Members</h4>
                         <p>Organize members with ranks and permissions</p>
                     </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Interactive Dashboard</h4>
+                        <p>Navigate all features with an interactive button-based interface</p>
+                    </div>
                 </div>
             </section>
 
@@ -366,6 +389,75 @@
             </section>
 
             <hr>
+
+            <section>
+                <h2><span class="emoji">📊</span> Interactive Dashboard</h2>
+                
+                <p>The bot includes an interactive dashboard that serves as a central hub for accessing and managing all bot features. Instead of constantly using slash commands, you can navigate through different sections using interactive buttons.</p>
+
+                <h3>Opening the Dashboard</h3>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/dashboard</code></p>
+                    <p>This will create an interactive embed with buttons for navigation.</p>
+                </div>
+
+                <h3>Dashboard Sections</h3>
+                <div class="feature-list">
+                    <div class="feature-card">
+                        <h4><span class="emoji">📊</span> Overview</h4>
+                        <p>Quick statistics and summary of organization status</p>
+                        <ul>
+                            <li>Total goals (active and completed)</li>
+                            <li>Inventory summary</li>
+                            <li>Member count</li>
+                            <li>Top goal categories</li>
+                            <li>Top inventory types</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🎯</span> Goals</h4>
+                        <p>Goal management and tracking</p>
+                        <ul>
+                            <li>List of active goals with progress</li>
+                            <li>Progress percentages and status</li>
+                            <li>Quick command references</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📦</span> Inventory</h4>
+                        <p>Inventory browsing and management</p>
+                        <ul>
+                            <li>Inventory breakdown by type</li>
+                            <li>Recent items added</li>
+                            <li>Quick command references</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">📈</span> Reports</h4>
+                        <p>Report generation and viewing</p>
+                        <ul>
+                            <li>Recent activity summary (last 7 days)</li>
+                            <li>Quick command references</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">⚙️</span> Admin</h4>
+                        <p>Administrative settings (Officers only)</p>
+                        <ul>
+                            <li>Configuration commands</li>
+                            <li>Member management commands</li>
+                            <li>Only accessible to officers/admins</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Using the Dashboard</h3>
+                <p>Click on any section button to switch views. The <strong>🔄 Refresh</strong> button updates the current section with the latest data from the database.</p>
+                
+                <div class="tip">
+                    <p><strong>Tip:</strong> Each user gets their own dashboard instance. Dashboards automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact).</p>
+                </div>
+            </section>
 
             <section>
                 <h2><span class="emoji">🎯</span> Goal Management</h2>
@@ -722,6 +814,12 @@
                             <li><code>/admin_config_set_report_time</code> - Set report schedule (Officers)</li>
                             <li><code>/admin_config_view</code> - View configuration (Officers)</li>
                             <li><code>/report_generate</code> - Generate report (Officers)</li>
+                        </ul>
+                    </div>
+                    <div class="quick-ref-section">
+                        <h4>Dashboard</h4>
+                        <ul>
+                            <li><code>/dashboard</code> - Open interactive dashboard (All Members)</li>
                         </ul>
                     </div>
                 </div>

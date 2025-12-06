@@ -9,6 +9,7 @@ The bot helps your Star Citizen organization:
 - 📦 **Manage Inventory** - Keep track of ships, weapons, and other assets
 - 📊 **Generate Reports** - Get weekly summaries of your org's progress
 - 👥 **Manage Members** - Organize members with ranks and permissions
+- 📊 **Interactive Dashboard** - Navigate all features with an interactive button-based interface
 
 ## Getting Started
 
@@ -21,6 +22,52 @@ The bot uses three permission levels:
 - **👤 Members** - Can view goals/inventory and update goal progress
 
 Your server admins can configure which Discord roles have these permissions, or set them manually using bot commands.
+
+---
+
+## 📊 Interactive Dashboard
+
+The bot includes an interactive dashboard that serves as a central hub for accessing and managing all bot features. Instead of constantly using slash commands, you can navigate through different sections using interactive buttons.
+
+### Opening the Dashboard
+
+**Command:** `/dashboard`
+
+This will create an interactive embed with buttons for navigation.
+
+### Dashboard Sections
+
+1. **📊 Overview** - Quick statistics and summary of organization status
+   - Total goals (active and completed)
+   - Inventory summary
+   - Member count
+   - Top goal categories
+   - Top inventory types
+
+2. **🎯 Goals** - Goal management and tracking
+   - List of active goals with progress
+   - Progress percentages and status
+   - Quick command references
+
+3. **📦 Inventory** - Inventory browsing and management
+   - Inventory breakdown by type
+   - Recent items added
+   - Quick command references
+
+4. **📈 Reports** - Report generation and viewing
+   - Recent activity summary (last 7 days)
+   - Quick command references
+
+5. **⚙️ Admin** - Administrative settings (Officers only)
+   - Configuration commands
+   - Member management commands
+   - Only accessible to officers/admins
+
+### Using the Dashboard
+
+Click on any section button to switch views. The **🔄 Refresh** button updates the current section with the latest data from the database.
+
+**Note:** Each user gets their own dashboard instance. Dashboards automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact).
 
 ---
 
@@ -321,6 +368,9 @@ A: Officers can use `/admin_config_set_report_channel` and `/admin_config_set_re
 - `/admin_config_set_report_time` - Set report schedule (Officers)
 - `/admin_config_view` - View configuration (Officers)
 - `/report_generate` - Generate report (Officers)
+
+### Dashboard
+- `/dashboard` - Open interactive dashboard (All Members)
 
 ---
 
