@@ -390,10 +390,14 @@
 
             <hr>
 
-            <section>
+            <section id="dashboard-section">
                 <h2><span class="emoji">📊</span> Interactive Dashboard</h2>
                 
-                <p>The bot includes an interactive dashboard that serves as a central hub for accessing and managing all bot features. Instead of constantly using slash commands, you can navigate through different sections using interactive buttons.</p>
+                <p>The bot includes an interactive dashboard that serves as a central hub for accessing and managing all bot features. Instead of constantly using slash commands, you can navigate through different sections using interactive buttons, select menus, and modals.</p>
+
+                <div class="tip">
+                    <p><strong>🎉 New Features:</strong> The dashboard has been significantly enhanced with interactive select menus, detailed view pages, advanced filtering, quick create modals, search functionality, and improved admin tools!</p>
+                </div>
 
                 <h3>Opening the Dashboard</h3>
                 <div class="command-block">
@@ -416,20 +420,26 @@
                     </div>
                     <div class="feature-card">
                         <h4><span class="emoji">🎯</span> Goals</h4>
-                        <p>Goal management and tracking</p>
+                        <p>Enhanced goal management and tracking</p>
                         <ul>
-                            <li>List of active goals with progress</li>
+                            <li>Interactive select menus to browse goals</li>
+                            <li>Filter by category dropdown</li>
+                            <li>Search functionality</li>
+                            <li>Detailed view pages with edit/delete actions</li>
+                            <li>Quick create modal for new goals</li>
                             <li>Progress percentages and status</li>
-                            <li>Quick command references</li>
                         </ul>
                     </div>
                     <div class="feature-card">
                         <h4><span class="emoji">📦</span> Inventory</h4>
-                        <p>Inventory browsing and management</p>
+                        <p>Enhanced inventory browsing and management</p>
                         <ul>
+                            <li>Interactive select menus to browse items</li>
+                            <li>Filter by type dropdown</li>
+                            <li>Search functionality</li>
+                            <li>Detailed view pages with edit/delete actions</li>
+                            <li>Quick create modal for new items</li>
                             <li>Inventory breakdown by type</li>
-                            <li>Recent items added</li>
-                            <li>Quick command references</li>
                         </ul>
                     </div>
                     <div class="feature-card">
@@ -442,20 +452,75 @@
                     </div>
                     <div class="feature-card">
                         <h4><span class="emoji">⚙️</span> Admin</h4>
-                        <p>Administrative settings (Officers only)</p>
+                        <p>Enhanced administrative settings (Officers only)</p>
                         <ul>
-                            <li>Configuration commands</li>
-                            <li>Member management commands</li>
+                            <li>Member management interface</li>
+                            <li>Configuration viewer</li>
+                            <li>View current server settings</li>
+                            <li>Member information and rank management</li>
                             <li>Only accessible to officers/admins</li>
                         </ul>
                     </div>
                 </div>
 
+                <h3>New Dashboard Features</h3>
+                
+                <h4><span class="emoji">🔍</span> Interactive Select Menus</h4>
+                <p>Browse through goals and inventory items using intuitive select menus. Click on any item from the dropdown to view its details instantly.</p>
+                
+                <h4><span class="emoji">📄</span> Detailed View Pages</h4>
+                <p>Each goal and inventory item now has its own detailed view page with:</p>
+                <ul>
+                    <li>Complete information display</li>
+                    <li>Edit and Delete action buttons (permission-based)</li>
+                    <li>Quick navigation back to lists</li>
+                </ul>
+                
+                <h4><span class="emoji">🔎</span> Advanced Filtering</h4>
+                <p>Use filter dropdowns to quickly find what you're looking for:</p>
+                <ul>
+                    <li><strong>Goals:</strong> Filter by category (fleet, cargo, training, operations, pvp, exploration, mining, trading, other)</li>
+                    <li><strong>Inventory:</strong> Filter by type (ship, vehicle, weapon, armor, cargo, component, consumable, other)</li>
+                </ul>
+                
+                <h4><span class="emoji">🔎</span> Search Functionality</h4>
+                <p>Search through goals and inventory items by name. Simply type your search query to find matching items instantly.</p>
+                
+                <h4><span class="emoji">➕</span> Quick Create Modals</h4>
+                <p>Create new goals and inventory items directly from the dashboard using interactive modals. No need to remember complex slash commands!</p>
+                <ul>
+                    <li><strong>Create Goals:</strong> Use the "Create Goal" button to open a modal for creating aUEC or item-based goals</li>
+                    <li><strong>Create Inventory:</strong> Use the "Add Item" button to open a modal for adding new inventory items</li>
+                </ul>
+                
+                <h4><span class="emoji">👥</span> Enhanced Admin Tools</h4>
+                <p>The admin section now includes:</p>
+                <ul>
+                    <li><strong>Member Management Interface:</strong> View and manage member information, ranks, and permissions</li>
+                    <li><strong>Configuration Viewer:</strong> View current server settings including roles, report channel, and schedule</li>
+                </ul>
+
                 <h3>Using the Dashboard</h3>
                 <p>Click on any section button to switch views. The <strong>🔄 Refresh</strong> button updates the current section with the latest data from the database.</p>
                 
+                <div class="example">
+                    <p><strong>Example Workflow:</strong></p>
+                    <ol>
+                        <li>Open the dashboard with <code>/dashboard</code></li>
+                        <li>Click the <strong>🎯 Goals</strong> button</li>
+                        <li>Use the filter dropdown to filter by category</li>
+                        <li>Select a goal from the select menu to view details</li>
+                        <li>Use the "Edit" or "Delete" buttons on the detail view (if you have permissions)</li>
+                        <li>Or click "Create Goal" to add a new goal using the modal</li>
+                    </ol>
+                </div>
+                
                 <div class="tip">
                     <p><strong>Tip:</strong> Each user gets their own dashboard instance. Dashboards automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact).</p>
+                </div>
+                
+                <div class="tip">
+                    <p><strong>Tip:</strong> You can use the search functionality and filters together to quickly find specific goals or inventory items. The dashboard remembers your filter selections as you navigate.</p>
                 </div>
             </section>
 
