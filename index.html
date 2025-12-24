@@ -516,11 +516,68 @@
                 </div>
                 
                 <div class="tip">
-                    <p><strong>Tip:</strong> Each user gets their own dashboard instance. Dashboards automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact).</p>
+                    <p><strong>Tip:</strong> Regular dashboards (created with <code>/dashboard</code>) are personal and ephemeral. Each user gets their own dashboard instance that automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact). For a shared, always-available dashboard, use <code>/dashboard_setup</code> to create a persistent dashboard.</p>
                 </div>
                 
                 <div class="tip">
                     <p><strong>Tip:</strong> You can use the search functionality and filters together to quickly find specific goals or inventory items. The dashboard remembers your filter selections as you navigate.</p>
+                </div>
+
+                <h3>Persistent Dashboards</h3>
+                <p>In addition to personal dashboards, officers can set up a <strong>persistent dashboard</strong> that stays in a channel for everyone to use. Persistent dashboards are public, automatically update when data changes, and never timeout.</p>
+
+                <h4>Setting Up a Persistent Dashboard</h4>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/dashboard_setup</code> (Officers only)</p>
+                    <p>Creates a persistent dashboard in a channel that all members can interact with.</p>
+                    <ul>
+                        <li><strong>channel</strong>: (Optional) The channel to post the dashboard in. If not specified, uses the current channel.</li>
+                    </ul>
+                    <div class="example">
+                        <p><strong>Example:</strong></p>
+                        <code>/dashboard_setup channel:#organization-dashboard</code>
+                    </div>
+                    <div class="tip">
+                        <p><strong>Note:</strong> The bot needs "Send Messages" and "Manage Messages" permissions in the target channel to set up a persistent dashboard.</p>
+                    </div>
+                </div>
+
+                <h4>Removing a Persistent Dashboard</h4>
+                <div class="command-block">
+                    <p><strong>Command:</strong> <code>/dashboard_remove</code> (Officers only)</p>
+                    <p>Removes the persistent dashboard from your server. This deletes the dashboard message and clears the reference.</p>
+                </div>
+
+                <h4>Persistent Dashboard Features</h4>
+                <div class="feature-list">
+                    <div class="feature-card">
+                        <h4><span class="emoji">🌐</span> Public Access</h4>
+                        <p>All members can interact with persistent dashboards, unlike personal dashboards which are user-specific.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔄</span> Automatic Updates</h4>
+                        <p>The dashboard automatically updates when goals or inventory items are created, updated, or removed.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">⏰</span> No Timeout</h4>
+                        <p>Persistent dashboards never timeout, unlike personal dashboards which timeout after 5 minutes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🛡️</span> Permission Checks</h4>
+                        <p>Each user's permissions are checked per-interaction, so only authorized users can perform admin actions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><span class="emoji">🔄</span> Periodic Refresh</h4>
+                        <p>The dashboard refreshes every 30 minutes as a fallback, ensuring data stays current even if automatic updates fail.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <p><strong>Tip:</strong> Persistent dashboards are perfect for dedicated organization channels where members can quickly check goals, inventory, and reports without using commands.</p>
+                </div>
+
+                <div class="warning">
+                    <p><strong>Important:</strong> Discord messages can only be edited for up to 2 weeks. After that, the dashboard will need to be recreated using <code>/dashboard_setup</code> again.</p>
                 </div>
             </section>
 
@@ -841,6 +898,10 @@
                     <p><strong>Q: How do I set up weekly reports?</strong><br>
                     A: Officers can use <code>/admin_config_set_report_channel</code> and <code>/admin_config_set_report_time</code> to configure automatic reports.</p>
                 </div>
+                <div class="tip">
+                    <p><strong>Q: What's the difference between regular and persistent dashboards?</strong><br>
+                    A: Regular dashboards (from <code>/dashboard</code>) are personal, ephemeral, and timeout after 5 minutes. Persistent dashboards (from <code>/dashboard_setup</code>) are public, stay in a channel permanently, automatically update when data changes, and never timeout. All members can interact with persistent dashboards.</p>
+                </div>
             </section>
 
             <section>
@@ -885,6 +946,8 @@
                         <h4>Dashboard</h4>
                         <ul>
                             <li><code>/dashboard</code> - Open interactive dashboard (All Members)</li>
+                            <li><code>/dashboard_setup</code> - Set up persistent dashboard (Officers)</li>
+                            <li><code>/dashboard_remove</code> - Remove persistent dashboard (Officers)</li>
                         </ul>
                     </div>
                 </div>

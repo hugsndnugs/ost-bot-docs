@@ -67,7 +67,44 @@ This will create an interactive embed with buttons for navigation.
 
 Click on any section button to switch views. The **🔄 Refresh** button updates the current section with the latest data from the database.
 
-**Note:** Each user gets their own dashboard instance. Dashboards automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact).
+**Note:** Regular dashboards (created with `/dashboard`) are personal and ephemeral. Each user gets their own dashboard instance that automatically timeout after 5 minutes of inactivity. All interactions are user-specific (only the dashboard owner can interact). For a shared, always-available dashboard, use `/dashboard_setup` to create a persistent dashboard.
+
+### Persistent Dashboards
+
+In addition to personal dashboards, officers can set up a **persistent dashboard** that stays in a channel for everyone to use. Persistent dashboards are public, automatically update when data changes, and never timeout.
+
+#### Setting Up a Persistent Dashboard
+
+**Command:** `/dashboard_setup` (Officers only)
+
+Creates a persistent dashboard in a channel that all members can interact with.
+
+- **channel**: (Optional) The channel to post the dashboard in. If not specified, uses the current channel.
+
+**Example:**
+```
+/dashboard_setup channel:#organization-dashboard
+```
+
+**Note:** The bot needs "Send Messages" and "Manage Messages" permissions in the target channel to set up a persistent dashboard.
+
+#### Removing a Persistent Dashboard
+
+**Command:** `/dashboard_remove` (Officers only)
+
+Removes the persistent dashboard from your server. This deletes the dashboard message and clears the reference.
+
+#### Persistent Dashboard Features
+
+- **🌐 Public Access**: All members can interact with persistent dashboards, unlike personal dashboards which are user-specific.
+- **🔄 Automatic Updates**: The dashboard automatically updates when goals or inventory items are created, updated, or removed.
+- **⏰ No Timeout**: Persistent dashboards never timeout, unlike personal dashboards which timeout after 5 minutes.
+- **🛡️ Permission Checks**: Each user's permissions are checked per-interaction, so only authorized users can perform admin actions.
+- **🔄 Periodic Refresh**: The dashboard refreshes every 30 minutes as a fallback, ensuring data stays current even if automatic updates fail.
+
+**Tip:** Persistent dashboards are perfect for dedicated organization channels where members can quickly check goals, inventory, and reports without using commands.
+
+**Important:** Discord messages can only be edited for up to 2 weeks. After that, the dashboard will need to be recreated using `/dashboard_setup` again.
 
 ---
 
@@ -339,6 +376,9 @@ A: Org-owned items belong to the organization. Member-owned items are tracked to
 **Q: How do I set up weekly reports?**
 A: Officers can use `/admin_config_set_report_channel` and `/admin_config_set_report_time` to configure automatic reports.
 
+**Q: What's the difference between regular and persistent dashboards?**
+A: Regular dashboards (from `/dashboard`) are personal, ephemeral, and timeout after 5 minutes. Persistent dashboards (from `/dashboard_setup`) are public, stay in a channel permanently, automatically update when data changes, and never timeout. All members can interact with persistent dashboards.
+
 ---
 
 ## 🎮 Quick Reference
@@ -371,6 +411,8 @@ A: Officers can use `/admin_config_set_report_channel` and `/admin_config_set_re
 
 ### Dashboard
 - `/dashboard` - Open interactive dashboard (All Members)
+- `/dashboard_setup` - Set up persistent dashboard (Officers)
+- `/dashboard_remove` - Remove persistent dashboard (Officers)
 
 ---
 
